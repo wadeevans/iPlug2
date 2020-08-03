@@ -65,12 +65,12 @@ IPlugInstrument::IPlugInstrument(const InstanceInfo& info)
     
     pGraphics->AttachControl(new IVGroupControl("LFO", "LFO", 10.f, 20.f, 10.f, 10.f));
     
-    pGraphics->AttachControl(new IVButtonControl(keyboardBounds.GetFromTRHC(200, 30).GetTranslated(0, -30), SplashClickActionFunc,
+    pGraphics->AttachControl(new IVButtonControl(keyboardBounds.GetFromTRHC(200, 30).GetTranslated(0, -40), SplashClickActionFunc,
       "Show/Hide Keyboard", DEFAULT_STYLE.WithColor(kFG, COLOR_WHITE).WithLabelText({15.f, EVAlign::Middle})))->SetAnimationEndActionFunction(
       [pGraphics](IControl* pCaller) {
         static bool hide = false;
         pGraphics->GetControlWithTag(kCtrlTagKeyboard)->Hide(hide = !hide);
-        pGraphics->Resize(PLUG_WIDTH, hide ? PLUG_HEIGHT / 1.9 : PLUG_HEIGHT, pGraphics->GetDrawScale());
+        pGraphics->Resize(PLUG_WIDTH, hide ? PLUG_HEIGHT / 2 : PLUG_HEIGHT, pGraphics->GetDrawScale());
     });
 #ifdef OS_IOS
     if(!IsAuv3AppExtension())
