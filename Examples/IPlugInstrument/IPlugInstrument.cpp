@@ -70,7 +70,7 @@ IPlugInstrument::IPlugInstrument(const InstanceInfo& info)
       [pGraphics](IControl* pCaller) {
         static bool hide = false;
         pGraphics->GetControlWithTag(kCtrlTagKeyboard)->Hide(hide = !hide);
-        pGraphics->Resize(PLUG_WIDTH, hide ? PLUG_HEIGHT / 2 : PLUG_HEIGHT, pGraphics->GetDrawScale());
+        pGraphics->Resize(PLUG_WIDTH, hide ? PLUG_HEIGHT / 1.9 : PLUG_HEIGHT, pGraphics->GetDrawScale());
     });
 #ifdef OS_IOS
     if(!IsAuv3AppExtension())
